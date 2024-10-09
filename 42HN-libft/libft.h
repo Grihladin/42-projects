@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:17:40 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/09 13:00:35 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/09 19:36:25 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,9 @@ char	*ft_strchr(const char *str, int ch);
 char	*ft_strrchr(const char *str, int ch);
 int		ft_strcmp(const char *lhs, const char *rhs);
 void	*ft_memset(void *dest, int ch, size_t count);
+int		ft_strncmp(const char *lhs, const char *rhs, size_t count);
+void	bzero(void *s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t count);
+int		ft_memcmp(const void *lhs, const void *rhs, size_t count);
 
 #endif

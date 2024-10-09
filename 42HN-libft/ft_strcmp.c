@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:06:05 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/09 12:23:24 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/09 17:28:11 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 int	ft_strcmp(const char *lhs, const char *rhs)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (lhs[i] == rhs[i] && lhs[i] != '\0')
+	while (lhs[i] == rhs[i])
 	{
+		if (lhs[i] == '\0')
+		{
+			return (0);
+		}
 		i++;
 	}
 	return ((unsigned char)lhs[i] - (unsigned char)rhs[i]);
