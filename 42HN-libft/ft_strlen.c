@@ -6,13 +6,13 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:39:03 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/08 12:42:27 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 12:31:22 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -34,21 +34,18 @@ int	ft_strlen(char *str)
 // 		printf("Test case 1 passed!\n");
 // 	else
 // 		printf("Test case 1 failed!\n");
-
 // 	// Test case 2: String with length 5
 // 	result = ft_strlen("Hello");
 // 	if (result == 5)
 // 		printf("Test case 2 passed!\n");
 // 	else
 // 		printf("Test case 2 failed!\n");
-
 // 	// Test case 3: String with spaces
 // 	result = ft_strlen("Hello, World!");
 // 	if (result == 13)
 // 		printf("Test case 3 passed!\n");
 // 	else
 // 		printf("Test case 3 failed!\n");
-
 // 	// Test case 4: String with special characters
 // 	result = ft_strlen("\t\n@!");
 // 	if (result == 4)
