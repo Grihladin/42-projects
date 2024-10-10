@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:36:52 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 10:58:59 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 19:51:53 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
 	i = 0;
-	if (d == s)
+	if (d == s || count == 0)
 		return (dest);
 	if (d > s && d < s + count)
 	{
@@ -32,9 +32,7 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 		}
 	}
 	else
-	{
 		ft_memcpy(d, s, count);
-	}
 	return (dest);
 }
 

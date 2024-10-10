@@ -6,13 +6,13 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:37:33 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/09 17:52:02 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 18:57:46 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;
 	size_t			i;
