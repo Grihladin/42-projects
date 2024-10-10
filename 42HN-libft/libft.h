@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:17:40 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 19:03:01 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 21:37:32 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t num, size_t size);
 char	*ft_strdup(const char *src);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

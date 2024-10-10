@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 18:30:25 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 20:56:05 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 21:19:47 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t count)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	i = 0;
 	while (i < count)
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		d[i] = s[i];
 		i++;
 	}
 	return (dest);
