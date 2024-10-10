@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:21:17 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 17:43:15 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/10 18:22:17 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strdup(const char *src)
 {
 	int		src_len;
 	char	*dup;
-	size_t	i;
+	int		i;
 
 	src_len = ft_strlen(src);
 	dup = malloc((src_len + 1) * sizeof(char));
