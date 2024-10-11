@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:17:40 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 21:37:32 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:45:15 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	*ft_memchr(const void *ptr, int ch, size_t count);
 void	*ft_memcpy(void *dest, const void *src, size_t count);
 int		ft_memcmp(const void *lhs, const void *rhs, size_t count);
 void	*ft_memmove(void *dest, const void *src, size_t count);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t dest_size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t num, size_t size);
 char	*ft_strdup(const char *src);
