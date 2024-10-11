@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 21:07:38 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/10 22:28:39 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:28:27 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (start > (unsigned int)ft_strlen(s))
+		len = 0;
 	result = malloc((len + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	if (start > (unsigned int)ft_strlen(s))
-	{
-		result[0] = '\0';
-		return (result);
-	}
 	i = 0;
 	j = (size_t)start;
 	while (i < len && s[j] != '\0')
