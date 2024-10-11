@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:33:25 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/11 16:34:58 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/11 16:47:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@ static int	is_in_set(char c, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	s1_len;
+	size_t	start;
+	size_t	end;
 	size_t	j;
 	char	*result;
 
-	i = 0;
-	s1_len = ft_strlen(s1);
+	start = 0;
+	end = ft_strlen(s1);
 	j = 0;
-	while (s1_len > 0 && is_in_set(s1[s1_len - 1], set) == 1)
-		s1_len--;
-	while (s1[i] != '\0' && is_in_set(s1[i], set) == 1)
-		i++;
-	if (i >= s1_len)
+	while (end > 0 && is_in_set(s1[end - 1], set) == 1)
+		end--;
+	while (s1[start] != '\0' && is_in_set(s1[start], set) == 1)
+		start++;
+	if (start >= end)
 		return (ft_strdup(""));
-	result = malloc((s1_len - i + 1) * sizeof(char));
+	result = malloc((end - start + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	while (i < s1_len)
+	while (start < end)
 	{
-		result[j] = s1[i];
-		i++;
+		result[j] = s1[start];
+		start++;
 		j++;
 	}
 	result[j] = '\0';
