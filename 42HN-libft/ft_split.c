@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:51:43 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/12 13:44:59 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/12 13:48:16 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*word_cpy(const char *src, size_t start, size_t end)
 	return (result);
 }
 
-int	get_word_end(const char *s, int i, char c)
+static int	get_word_end(const char *s, int i, char c)
 {
 	while (s[i] != c && s[i] != '\0')
 	{
