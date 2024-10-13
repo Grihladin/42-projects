@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:43 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/12 18:50:26 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:48:18 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*result;
 
-	if (s == NULL)
+	if (s == NULL || f == NULL)
 		return (NULL);
 	result = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (result == NULL)

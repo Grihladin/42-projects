@@ -3,7 +3,8 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 HEADER = libft.h
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+
+CFLAGS = -Wall -Wextra -Werror #-I/path/to/headers
 
 .PHONY: all clean fclean re
 

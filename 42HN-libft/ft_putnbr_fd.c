@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 18:54:51 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/12 19:50:50 by mratke           ###   ########.fr       */
+/*   Created: 2024/10/13 18:20:46 by mratke            #+#    #+#             */
+/*   Updated: 2024/10/13 18:28:37 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	char	*n_string;
 
-	if (s == NULL || f == NULL)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	n_string = ft_itoa(n);
+	write(fd, n_string, ft_strlen(n_string));
+	free(n_string);
 }
