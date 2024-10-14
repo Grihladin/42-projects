@@ -36,24 +36,38 @@ SRC = ft_isalpha.c \
       ft_putnbr_fd.c
 
 OBJ = $(SRC:.c=.o)
+BONUS_SRC = ft_lstnew.c \
+            ft_lstadd_front.c \
+            ft_lstsize.c \
+            ft_lstlast.c \
+            ft_lstadd_back.c \
+            ft_lstdelone.c \
+            ft_lstclear.c \
+            ft_lstiter.c \
+            ft_lstmap.c
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 HEADER = libft.h
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror #-I/path/to/headers
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 # Targets
 all: $(NAME)
 
+
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+bonus: $(BONUS_OBJ)
+	ar rcs $(NAME) $(BONUS_OBJ)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
