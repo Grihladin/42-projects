@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 15:52:20 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/14 19:11:20 by mratke           ###   ########.fr       */
+/*   Created: 2024/10/14 19:49:15 by mratke            #+#    #+#             */
+/*   Updated: 2024/10/14 20:27:33 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int		i;
-	t_list	*current;
-
-	i = 0;
-	current = lst;
-	while (current != NULL)
+	if (lst != NULL)
 	{
-		i++;
-		current = current->next;
+		del(lst->content);
+		free(lst);
 	}
-	return (i);
+	return ;
 }
 
 // int	main(void)
@@ -45,6 +40,7 @@ int	ft_lstsize(t_list *lst)
 // 	ft_lstadd_front(&head, new_node_3);
 // 	current = head;
 // 	i = ft_lstsize(head);
+// 	ft_lstdelone(new_node_2, free);
 // 	printf("lstsize = %i", i);
 // 	while (current != NULL)
 // 	{
