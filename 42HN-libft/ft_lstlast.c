@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:09:13 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/14 21:42:38 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/14 21:45:11 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*current;
 
-	current = lst;
 	if (lst != NULL)
 	{
+		current = lst;
 		while (current->next != NULL)
 		{
 			current = current->next;
