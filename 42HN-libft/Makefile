@@ -46,7 +46,6 @@ BONUS_SRC = ft_lstnew.c \
             ft_lstiter.c \
             ft_lstmap.c
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
-HEADER = libft.h
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror #-I/path/to/headers
@@ -63,7 +62,7 @@ $(NAME): $(OBJ)
 bonus: $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ)
 
-%.o: %.c $(HEADER)
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
