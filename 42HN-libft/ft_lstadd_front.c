@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:13:52 by mratke            #+#    #+#             */
-/*   Updated: 2024/10/14 15:46:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/10/14 16:02:18 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 // 		i++;
 // 		current = current->next;
 // 	}
-}
