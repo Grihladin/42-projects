@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/06 18:28:46 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/07 20:18:51 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	int		i;
+	t_list	*stack_a;
+	t_list	*new_node;
 
 	i = 1;
 	while (i < argc)
 	{
-		ft_printf("%s", argv[i]);
+		new_node = ft_lstnew(alloc_and_put_int(argv[i]));
+		if (!new_node)
+		{
+			ft_lstclear(&stack_a, free);
+			return (1);
+		}
+		ft_lstadd_back(&stack_a, new_node);
 		i++;
-		if (i < argc)
-			ft_printf(" ");
 	}
-	ft_printf("\n");
+	rotate_a(&stack_a);
+	ft_lstprint(stack_a);
+	ft_lstclear(&stack_a, free);
 }
