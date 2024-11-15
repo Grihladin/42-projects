@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_list_utils1.c                                   :+:      :+:    :+:   */
+/*   ps_list_fts1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:09:45 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/07 19:39:41 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 22:06:42 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int *content)
 {
 	t_list	*new_node;
 
@@ -63,7 +63,7 @@ void	ft_lstprint(t_list *head)
 	i = 0;
 	while (head != NULL)
 	{
-		ft_printf("Node%i: %i\n", i, *(int *)head->content);
+		ft_printf("Node%i: %i\n", i, *head->content);
 		head = head->next;
 		i++;
 	}
