@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rules.c                                         :+:      :+:    :+:   */
+/*   ps_rules_both.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 19:24:13 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/07 20:21:11 by mratke           ###   ########.fr       */
+/*   Created: 2024/11/07 20:44:57 by mratke            #+#    #+#             */
+/*   Updated: 2024/11/15 12:58:04 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// The first element becomes the last one.
-int	rotate_a(t_list **stack_a)
+int	rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-	t_list	*last;
-
-	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-		return (1);
-	tmp = *stack_a;
-	*stack_a = tmp->next;
-	tmp->next = NULL;
-	last = ft_lstlast(*stack_a);
-	last->next = tmp;
+	rotate_a(&stack_a);
+	rotate_b(&stack_b);
 	return (0);
+}
+
+int	rev_rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	rev_rotate_a(&stack_a);
+	rev_rotate_b(&stack_b);
+	return (0);
+}
+
+int	swap_both(t_list **stack_a, t_list **stack_b)
+{
+	swap_a(&stack_a);
+	swap_b(&stack_b);
 }

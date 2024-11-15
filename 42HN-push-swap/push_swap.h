@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/07 20:18:07 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 12:55:39 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,24 @@ void				ft_lstprint(t_list *head);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
-// util functions
+// utility functions
 void				*alloc_and_put_int(char *str_num);
 
-// rules
-int					rotate_a(t_list **stack_a);
+// rules_a
+
+int					rotate_a(t_list **stack);
+int					rev_rotate_a(t_list **stack);
+int					swap_a(t_list **stack);
+
+// rules_b
+
+int					rotate_b(t_list **stack);
+int					rev_rotate_b(t_list **stack);
+int					swap_b(t_list **stack);
+
+// rules_both
+
+int					rotate_both(t_list **stack_a, t_list **stack_b);
+int					rev_rotate_both(t_list **stack_a, t_list **stack_b);
 
 #endif
