@@ -9,6 +9,7 @@ SRC = ps_main.c \
 	ps_operations.c \
 	ps_operations_a.c \
 	ps_operations_b.c \
+	ps_operations_both.c \
     ps_list_fts1.c \
 	ps_list_fts2.c
 OBJ_DIR = obj

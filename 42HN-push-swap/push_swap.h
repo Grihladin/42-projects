@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 19:12:20 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 20:18:12 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,27 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 // utility functions
 void				*alloc_and_put_int(char *str_num);
 
-// rules
+// operations
 
 int					rotate(t_list **stack);
 int					rev_rotate(t_list **stack);
 int					swap(t_list **stack);
 
-// rules_a
+// operations_a
 
 void				rotate_a(t_list **stack);
 void				rev_rotate_a(t_list **stack);
 void				swap_a(t_list **stack);
+void				push_a(t_list **stack_a, t_list **stack_b);
 
-// rules_b
+// operations_b
 
 void				rotate_b(t_list **stack);
 void				rev_rotate_b(t_list **stack);
 void				swap_b(t_list **stack);
+void				push_b(t_list **stack_a, t_list **stack_b);
 
-// rules_both
+// operations_both
 
 void				rotate_both(t_list **stack_a, t_list **stack_b);
 void				rev_rotate_both(t_list **stack_a, t_list **stack_b);
