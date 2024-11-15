@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:56:22 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/07 19:21:46 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 21:29:08 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,23 @@ void	*alloc_and_put_int(char *str_num)
 		return (NULL);
 	*content = ft_atoi(str_num);
 	return ((void *)content);
+}
+
+void	fill_list(int argc, char **argv, t_list **stack)
+{
+	t_list	*new_node;
+	int		i;
+
+	i = 1;
+	while (i < argc)
+	{
+		new_node = ft_lstnew(alloc_and_put_int(argv[i]));
+		if (new_node == NULL)
+		{
+			ft_lstclear(stack, free);
+			return ;
+		}
+		ft_lstadd_back(stack, new_node);
+		i++;
+	}
 }

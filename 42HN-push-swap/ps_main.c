@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 20:41:11 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 21:31:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,32 @@
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_list	*new_node;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	i = 1;
-	while (i < argc)
-	{
-		new_node = ft_lstnew(alloc_and_put_int(argv[i]));
-		if (!new_node)
-		{
-			ft_lstclear(&stack_a, free);
-			return (1);
-		}
-		ft_lstadd_back(&stack_a, new_node);
-		i++;
-	}
-	new_node = ft_lstnew(alloc_and_put_int("42"));
-	ft_lstadd_back(&stack_b, new_node);
-	push_b(&stack_a, &stack_b);
-	rotate_both(&stack_a, &stack_b);
+	fill_list(argc, argv, &stack_a);
+	// fill stack_b
+	fill_list(argc, argv, &stack_b);
+	// printf unmodified lists
 	ft_printf("stack_a\n");
 	ft_lstprint(stack_a);
 	ft_printf("\n");
 	ft_printf("stack_b\n");
 	ft_lstprint(stack_b);
+	ft_printf("------------------\n");
+	// operations to do
+	push_a(&stack_a, &stack_b);
+	rotate_b(&stack_b);
+	// printf modified lists
+	ft_printf("------------------\n");
+	ft_printf("stack_a updated\n");
+	ft_lstprint(stack_a);
+	ft_printf("\n");
+	ft_printf("stack_b updated\n");
+	ft_lstprint(stack_b);
+	// free lists
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 }

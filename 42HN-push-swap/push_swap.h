@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 20:18:12 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 21:28:05 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
 // utility functions
 void				*alloc_and_put_int(char *str_num);
+void				fill_list(int argc, char **argv, t_list **stack);
 
 // operations
 
