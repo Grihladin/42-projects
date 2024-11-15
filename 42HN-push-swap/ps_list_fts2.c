@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   ps_list_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 19:17:31 by mratke           ###   ########.fr       */
+/*   Created: 2024/11/07 19:35:16 by mratke            #+#    #+#             */
+/*   Updated: 2024/11/15 19:14:42 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		i;
-	t_list	*stack_a;
-	t_list	*new_node;
+	t_list	*current;
 
-	i = 1;
-	while (i < argc)
+	if (lst != NULL)
 	{
-		new_node = ft_lstnew(alloc_and_put_int(argv[i]));
-		if (!new_node)
+		current = lst;
+		while (current->next != NULL)
 		{
-			ft_lstclear(&stack_a, free);
-			return (1);
+			current = current->next;
 		}
-		ft_lstadd_back(&stack_a, new_node);
-		i++;
+		return (current);
 	}
-	swap_a(&stack_a);
-	rev_rotate_a(&stack_a);
-	rev_rotate_a(&stack_a);
-	rev_rotate_a(&stack_a);
-	ft_lstprint(stack_a);
-	ft_lstclear(&stack_a, free);
+	return (NULL);
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst != NULL)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

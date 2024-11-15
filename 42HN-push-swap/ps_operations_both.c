@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_list_utils2.c                                   :+:      :+:    :+:   */
+/*   ps_operations_both.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 19:35:16 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/07 19:36:57 by mratke           ###   ########.fr       */
+/*   Created: 2024/11/07 20:44:57 by mratke            #+#    #+#             */
+/*   Updated: 2024/11/15 19:23:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*current;
-
-	if (lst != NULL)
-	{
-		current = lst;
-		while (current->next != NULL)
-		{
-			current = current->next;
-		}
-		return (current);
-	}
-	return (NULL);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
+	return (0);
 }
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	rev_rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	if (lst != NULL)
-	{
-		del(lst->content);
-		free(lst);
-	}
-	return ;
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	ft_printf("rrr\n");
+	return (0);
+}
+
+void	swap_both(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
+	return (0);
 }

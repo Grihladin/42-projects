@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rules_both.c                                    :+:      :+:    :+:   */
+/*   ps_rules_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 20:44:57 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 12:58:04 by mratke           ###   ########.fr       */
+/*   Created: 2024/11/07 19:24:13 by mratke            #+#    #+#             */
+/*   Updated: 2024/11/15 19:16:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate_both(t_list **stack_a, t_list **stack_b)
+// The first element of a becomes the last one.
+void	rotate_a(t_list **stack)
 {
-	rotate_a(&stack_a);
-	rotate_b(&stack_b);
-	return (0);
+	rotate(stack);
+	ft_printf("ra\n");
 }
 
-int	rev_rotate_both(t_list **stack_a, t_list **stack_b)
+// The last element becomes the first one.
+void	rev_rotate_a(t_list **stack)
 {
-	rev_rotate_a(&stack_a);
-	rev_rotate_b(&stack_b);
-	return (0);
+	rev_rotate(stack);
+	ft_printf("rra\n");
 }
 
-int	swap_both(t_list **stack_a, t_list **stack_b)
+// Swap the first 2 elements at the top of stack a.
+void	swap_a(t_list **stack)
 {
-	swap_a(&stack_a);
-	swap_b(&stack_b);
+	swap(stack);
+	ft_printf("sa\n");
 }

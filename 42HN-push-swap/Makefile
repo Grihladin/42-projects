@@ -6,10 +6,11 @@ FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
 SRC = ps_main.c \
     ps_utils.c \
-	ps_rules_a.c \
-	ps_rules_b.c \
-    ps_list_utils1.c \
-	ps_list_utils2.c
+	ps_operations.c \
+	ps_operations_a.c \
+	ps_operations_b.c \
+    ps_list_fts1.c \
+	ps_list_fts2.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
