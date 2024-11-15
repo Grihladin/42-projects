@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:44:57 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 19:23:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 19:43:26 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 void	rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	int	i;
+	int	j;
+
+	i = rotate(stack_a);
+	j = rotate(stack_b);
+	if (i != 0 && j != 0)
+		ft_printf("rr\n");
 	return (0);
 }
 
 void	rev_rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	rev_rotate(stack_a);
-	rev_rotate(stack_b);
-	ft_printf("rrr\n");
+	int	i;
+	int	j;
+
+	i = rev_rotate(stack_a);
+	j = rev_rotate(stack_b);
+	if (i != 0 && j != 0)
+		ft_printf("rrr\n");
 	return (0);
 }
 

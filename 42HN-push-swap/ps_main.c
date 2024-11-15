@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 19:17:31 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/15 19:26:25 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	main(int argc, char **argv)
 		ft_lstadd_back(&stack_a, new_node);
 		i++;
 	}
+	rev_rotate_a(&stack_a);
+	rev_rotate_a(&stack_a);
+	rev_rotate_a(&stack_a);
 	swap_a(&stack_a);
-	rev_rotate_a(&stack_a);
-	rev_rotate_a(&stack_a);
-	rev_rotate_a(&stack_a);
 	ft_lstprint(stack_a);
 	ft_lstclear(&stack_a, free);
 }
