@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 20:50:16 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 21:38:04 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	push_chank_to_b(t_list **stack_a, t_list **stack_b, int chank_size)
 	}
 }
 
-void	put_max_on_top(t_list **stack, int chunk_size)
+void	put_max_on_top(t_list **stack)
 {
 	t_max_info	max;
 	t_list		*tmp;
 
 	max = find_max(*stack);
 	tmp = *stack;
-	if (chunk_size / 2 > max.pos)
+	if (ft_lstsize(*stack) / 2 > max.pos)
 	{
 		while (*tmp->content != max.value)
 		{
-			rotate_b(stack);
+			rotate_a(stack);
 			tmp = *stack;
 		}
 	}
@@ -43,7 +43,7 @@ void	put_max_on_top(t_list **stack, int chunk_size)
 	{
 		while (*tmp->content != max.value)
 		{
-			rev_rotate_b(stack);
+			rev_rotate_a(stack);
 			tmp = *stack;
 		}
 	}

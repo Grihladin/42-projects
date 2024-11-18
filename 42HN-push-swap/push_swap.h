@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 20:22:38 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 21:17:50 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int					check_if_sorted(t_list *stack);
 void				push_chank_to_b(t_list **stack_a, t_list **stack_b,
 						int chank_size);
 t_max_info			find_max(t_list *stack);
-void				put_max_on_top(t_list **stack, int chunk_size);
+void				put_max_on_top(t_list **stack);
 
 // operations
 

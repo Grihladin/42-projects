@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 20:51:14 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 21:39:37 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		chunk_size;
-	int		i;
-	int		j;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -36,26 +33,14 @@ int	main(int argc, char **argv)
 	ft_lstprint(stack_b);
 	ft_printf("------------------\n");
 	// operations to do
-	i = 0;
-	j = 0;
-	chunk_size = 3;
-	while (check_if_sorted(stack_a) != 1)
+	while (stack_a != NULL)
 	{
-		while (i < chunk_size)
-		{
-			push_b(&stack_a, &stack_b);
-			i++;
-		}
-		i = 0;
-		while (i < chunk_size)
-		{
-			put_max_on_top(&stack_b, chunk_size);
-			push_a(&stack_a, &stack_b);
-			rotate_a(&stack_a);
-			i++;
-		}
-		i = 0;
-		j++;
+		put_max_on_top(&stack_a);
+		push_b(&stack_a, &stack_b);
+	}
+	while (stack_b != NULL)
+	{
+		push_a(&stack_a, &stack_b);
 	}
 	// printf modified lists
 	ft_printf("------------------\n");
