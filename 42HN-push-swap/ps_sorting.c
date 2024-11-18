@@ -6,24 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/16 22:49:16 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 15:53:52 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_if_sorted(t_list *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (*stack->content > *stack->next->content)
-		{
-			return (0);
-		}
-		stack = stack->next;
-	}
-	return (1);
-}
 
 void	push_chank_to_b(t_list **stack_a, t_list **stack_b, int chank_size)
 {
@@ -37,31 +24,52 @@ void	push_chank_to_b(t_list **stack_a, t_list **stack_b, int chank_size)
 	}
 }
 
-void	sort_chank(t_list **stack)
+void	put_max_on_top(t_list **stack, int chunk_size)
 {
-	t_list	*current;
+	t_max_info	max;
+	t_list		*tmp;
 
-	current = *stack;
-	while (current->next != NULL)
+	max = find_max(*stack);
+	tmp = *stack;
+	if (chunk_size / 2 > max.pos)
 	{
-		if (*current->content > *current->next->content)
+		while (*tmp->content != max.value)
 		{
 			rotate_b(stack);
-			current = *stack;
+			tmp = *stack;
 		}
-		else
-			current = current->next;
+	}
+	else
+	{
+		while (*tmp->content != max.value)
+		{
+			rev_rotate_b(stack);
+			tmp = *stack;
+		}
 	}
 }
 
-void	push_to_chank_a(t_list **stack_a, t_list **stack_b, int chank_size)
+t_max_info	find_max(t_list *stack)
 {
-	int	i;
+	int			max;
+	int			pos;
+	int			max_pos;
+	t_max_info	result;
 
-	i = 0;
-	while (i < chank_size)
+	max = *stack->content;
+	pos = 0;
+	max_pos = 0;
+	while (stack != NULL)
 	{
-		push_a(stack_a, stack_b);
-		i++;
+		if (*stack->content > max)
+		{
+			max = *stack->content;
+			max_pos = pos;
+		}
+		stack = stack->next;
+		pos++;
 	}
+	result.value = max;
+	result.pos = max_pos;
+	return (result);
 }

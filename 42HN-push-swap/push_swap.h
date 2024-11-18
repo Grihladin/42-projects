@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/16 22:41:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 15:41:31 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_max_info
+{
+	int				value;
+	int				pos;
+}					t_max_info;
 // list functions
 t_list				*ft_lstnew(int *content);
 t_list				*ft_lstlast(t_list *lst);
@@ -43,9 +48,8 @@ void				fill_list(int argc, char **argv, t_list **stack);
 int					check_if_sorted(t_list *stack);
 void				push_chank_to_b(t_list **stack_a, t_list **stack_b,
 						int chank_size);
-void				sort_chank(t_list **stack);
-void				push_to_chank_a(t_list **stack_a, t_list **stack_b,
-						int chank_size);
+t_max_info			find_max(t_list *stack);
+void				put_max_on_top(t_list **stack, int chunk_size);
 
 // operations
 

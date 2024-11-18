@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:56:22 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 21:29:08 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 15:45:18 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,17 @@ void	fill_list(int argc, char **argv, t_list **stack)
 		ft_lstadd_back(stack, new_node);
 		i++;
 	}
+}
+
+int	check_if_sorted(t_list *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (*stack->content > *stack->next->content)
+		{
+			return (0);
+		}
+		stack = stack->next;
+	}
+	return (1);
 }
