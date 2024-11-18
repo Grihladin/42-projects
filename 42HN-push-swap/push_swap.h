@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 23:28:06 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 00:29:31 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ char				**ft_split(char const *s, char c);
 void				push_chank_to_b(t_list **stack_a, t_list **stack_b,
 						int chank_size);
 t_value_info		find_min(t_list *stack);
-void				put_min_on_top(t_list **stack);
-int					find_max(t_list *stack);
+t_value_info		find_max(t_list *stack);
+void				move_max_to_b(t_value_info max, t_list **stack_a,
+						t_list **stack_b);
 
 // operations
 

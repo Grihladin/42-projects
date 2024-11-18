@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 23:27:57 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 00:31:10 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,12 @@ t_value_info	find_min(t_list *stack)
 	return (result);
 }
 
-int	find_max(t_list *stack)
+t_value_info	find_max(t_list *stack)
 {
-	int	max;
-	int	pos;
-	int	max_pos;
+	int				max;
+	int				pos;
+	int				max_pos;
+	t_value_info	result;
 
 	max = *stack->content;
 	pos = 0;
@@ -93,5 +94,31 @@ int	find_max(t_list *stack)
 		stack = stack->next;
 		pos++;
 	}
-	return (max);
+	result.value = max;
+	result.pos = max_pos;
+	return (result);
+}
+
+void	move_max_to_b(t_value_info max, t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+
+	tmp = *stack_a;
+	if (max.pos < ft_lstsize(*stack_a) / 2)
+	{
+		while (*tmp->content != max.value)
+		{
+			rotate_a(stack_a);
+			tmp = *stack_a;
+		}
+	}
+	else
+	{
+		while (*tmp->content != max.value)
+		{
+			rev_rotate_a(stack_a);
+			tmp = *stack_a;
+		}
+	}
+	push_b(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 23:35:51 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 00:48:59 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	char	**arg_array;
-	int		i;
+	t_list			*stack_a;
+	t_list			*stack_b;
+	char			**arg_array;
+	int				i;
+	t_value_info	max_a;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -34,16 +35,9 @@ int	main(int argc, char **argv)
 	ft_printf("------------------\n");
 	while (stack_a != NULL)
 	{
-		put_min_on_top(&stack_a);
-		if (check_if_sorted(stack_a) == 1)
-			return (0);
-		push_b(&stack_a, &stack_b);
+		max_a = find_max(stack_a);
+		move_max_to_b(max_a, &stack_a, &stack_b);
 	}
-	while (stack_b != NULL)
-	{
-		push_a(&stack_a, &stack_b);
-	}
-	radix_sort(&stack_a, &stack_b);
 	ft_printf("------------------\n");
 	print_stacks_side_by_side(stack_a, stack_b);
 	ft_printf("------------------\n");

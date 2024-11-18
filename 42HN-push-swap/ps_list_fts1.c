@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:09:45 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 22:24:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 00:46:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,26 @@ void	print_stacks_side_by_side(t_list *stack_a, t_list *stack_b)
 
 	current_a = stack_a;
 	current_b = stack_b;
+	printf("Stack A    Stack B\n");
+	printf("-------    -------\n");
 	while (current_a != NULL || current_b != NULL)
 	{
 		if (current_a != NULL)
 		{
-			ft_printf("%d    ", *current_a->content);
+			printf("%-10d", *(int *)current_a->content);
 			current_a = current_a->next;
 		}
 		else
-		{
-			ft_printf("_ ");
-		}
+			printf("%-10s", "_");
 		if (current_b != NULL)
 		{
-			ft_printf("%i\n", *current_b->content);
+			printf("%-10d\n", *(int *)current_b->content);
 			current_b = current_b->next;
 		}
 		else
-			ft_printf("   _\n");
+			printf("%-10s\n", "_");
 	}
-	ft_printf("a       b\n");
+	printf("a          b\n");
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
