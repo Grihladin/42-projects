@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 22:44:06 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 23:28:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct s_min_info
+typedef struct s_value_info
 {
 	int				value;
 	int				pos;
-}					t_min_info;
+	int				prev_value;
+	int				next_value;
+}					t_value_info;
+
+typedef struct s_stack_info
+{
+	int				max;
+	int				min;
+	int				size;
+}					t_stack_info;
 // list functions
 t_list				*ft_lstnew(int *content);
 t_list				*ft_lstlast(t_list *lst);
@@ -50,8 +59,9 @@ char				**ft_split(char const *s, char c);
 
 void				push_chank_to_b(t_list **stack_a, t_list **stack_b,
 						int chank_size);
-t_min_info			find_min(t_list *stack);
+t_value_info		find_min(t_list *stack);
 void				put_min_on_top(t_list **stack);
+int					find_max(t_list *stack);
 
 // operations
 
