@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 21:38:04 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 22:44:35 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	push_chank_to_b(t_list **stack_a, t_list **stack_b, int chank_size)
 	}
 }
 
-void	put_max_on_top(t_list **stack)
+void	put_min_on_top(t_list **stack)
 {
-	t_max_info	max;
+	t_min_info	min;
 	t_list		*tmp;
 
-	max = find_max(*stack);
+	min = find_min(*stack);
 	tmp = *stack;
-	if (ft_lstsize(*stack) / 2 > max.pos)
+	if (ft_lstsize(*stack) / 2 > min.pos)
 	{
-		while (*tmp->content != max.value)
+		while (*tmp->content != min.value)
 		{
 			rotate_a(stack);
 			tmp = *stack;
@@ -41,7 +41,7 @@ void	put_max_on_top(t_list **stack)
 	}
 	else
 	{
-		while (*tmp->content != max.value)
+		while (*tmp->content != min.value)
 		{
 			rev_rotate_a(stack);
 			tmp = *stack;
@@ -49,27 +49,27 @@ void	put_max_on_top(t_list **stack)
 	}
 }
 
-t_max_info	find_max(t_list *stack)
+t_min_info	find_min(t_list *stack)
 {
-	int			max;
+	int			min;
 	int			pos;
-	int			max_pos;
-	t_max_info	result;
+	int			min_pos;
+	t_min_info	result;
 
-	max = *stack->content;
+	min = *stack->content;
 	pos = 0;
-	max_pos = 0;
+	min_pos = 0;
 	while (stack != NULL)
 	{
-		if (*stack->content < max)
+		if (*stack->content < min)
 		{
-			max = *stack->content;
-			max_pos = pos;
+			min = *stack->content;
+			min_pos = pos;
 		}
 		stack = stack->next;
 		pos++;
 	}
-	result.value = max;
-	result.pos = max_pos;
+	result.value = min;
+	result.pos = min_pos;
 	return (result);
 }

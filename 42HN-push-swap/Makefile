@@ -12,7 +12,8 @@ SRC = ps_main.c \
 	ps_operations_both.c \
     ps_list_fts1.c \
 	ps_list_fts2.c \
-	ps_sorting.c
+	ps_sorting.c \
+	ft_split.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

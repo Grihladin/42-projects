@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:56:22 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 21:19:42 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 22:38:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,25 @@ void	*alloc_and_put_int(char *str_num)
 	return ((void *)content);
 }
 
-void	fill_list(int argc, char **argv, t_list **stack)
+int	array_size(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
+}
+
+void	fill_list(char **argv, t_list **stack)
 {
 	t_list	*new_node;
 	int		i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < array_size(argv))
 	{
 		new_node = ft_lstnew(alloc_and_put_int(argv[i]));
 		if (new_node == NULL)

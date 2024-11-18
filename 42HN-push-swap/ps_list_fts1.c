@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:09:45 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/15 22:06:42 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 22:24:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,33 @@ t_list	*ft_lstnew(int *content)
 	return (new_node);
 }
 
-void	ft_lstprint(t_list *head)
+void	print_stacks_side_by_side(t_list *stack_a, t_list *stack_b)
 {
-	int	i;
+	t_list	*current_a;
+	t_list	*current_b;
 
-	i = 0;
-	while (head != NULL)
+	current_a = stack_a;
+	current_b = stack_b;
+	while (current_a != NULL || current_b != NULL)
 	{
-		ft_printf("Node%i: %i\n", i, *head->content);
-		head = head->next;
-		i++;
+		if (current_a != NULL)
+		{
+			ft_printf("%d    ", *current_a->content);
+			current_a = current_a->next;
+		}
+		else
+		{
+			ft_printf("_ ");
+		}
+		if (current_b != NULL)
+		{
+			ft_printf("%i\n", *current_b->content);
+			current_b = current_b->next;
+		}
+		else
+			ft_printf("   _\n");
 	}
+	ft_printf("a       b\n");
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))

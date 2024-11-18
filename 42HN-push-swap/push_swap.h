@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 21:17:50 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 22:44:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,33 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct s_max_info
+typedef struct s_min_info
 {
 	int				value;
 	int				pos;
-}					t_max_info;
+}					t_min_info;
 // list functions
 t_list				*ft_lstnew(int *content);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstprint(t_list *head);
+void				print_stacks_side_by_side(t_list *stack_a, t_list *stack_b);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 int					ft_lstsize(t_list *stack);
 
 // utility functions
 void				*alloc_and_put_int(char *str_num);
-void				fill_list(int argc, char **argv, t_list **stack);
+void				fill_list(char **argv, t_list **stack);
 int					check_if_sorted(t_list *stack);
+char				**ft_split(char const *s, char c);
 
 // sorting functions
 
 void				push_chank_to_b(t_list **stack_a, t_list **stack_b,
 						int chank_size);
-t_max_info			find_max(t_list *stack);
-void				put_max_on_top(t_list **stack);
+t_min_info			find_min(t_list *stack);
+void				put_min_on_top(t_list **stack);
 
 // operations
 
