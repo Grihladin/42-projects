@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 15:53:52 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 20:50:16 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_max_info	find_max(t_list *stack)
 	max_pos = 0;
 	while (stack != NULL)
 	{
-		if (*stack->content > max)
+		if (*stack->content < max)
 		{
 			max = *stack->content;
 			max_pos = pos;

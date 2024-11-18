@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 16:51:07 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 20:22:38 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstprint(t_list *head);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
+int					ft_lstsize(t_list *stack);
 
 // utility functions
 void				*alloc_and_put_int(char *str_num);

@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 17:24:20 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/18 20:51:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	int		chunk_size;
 	int		i;
+	int		j;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	chunk_size = 3;
 	fill_list(argc, argv, &stack_a);
 	if (check_if_sorted(stack_a) == 1)
 	{
@@ -37,17 +37,25 @@ int	main(int argc, char **argv)
 	ft_printf("------------------\n");
 	// operations to do
 	i = 0;
-	while (i < chunk_size)
+	j = 0;
+	chunk_size = 3;
+	while (check_if_sorted(stack_a) != 1)
 	{
-		push_b(&stack_a, &stack_b);
-		i++;
-	}
-	i = 0;
-	while (i < chunk_size)
-	{
-		put_max_on_top(&stack_b, chunk_size);
-		push_a(&stack_a, &stack_b);
-		i++;
+		while (i < chunk_size)
+		{
+			push_b(&stack_a, &stack_b);
+			i++;
+		}
+		i = 0;
+		while (i < chunk_size)
+		{
+			put_max_on_top(&stack_b, chunk_size);
+			push_a(&stack_a, &stack_b);
+			rotate_a(&stack_a);
+			i++;
+		}
+		i = 0;
+		j++;
 	}
 	// printf modified lists
 	ft_printf("------------------\n");
