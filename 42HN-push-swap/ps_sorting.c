@@ -6,19 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 18:28:42 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:39:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push_most_to_b(t_list **stack_a, t_list **stack_b)
-{
-	while ((*stack_a)->next->next->next != NULL)
-	{
-		push_b(stack_a, stack_b);
-	}
-}
 
 t_value_info	find_min(t_list *stack)
 {
@@ -87,4 +79,45 @@ void	sort_three_nodes(t_list **stack)
 	{
 		swap_a(stack);
 	}
+}
+
+void	push_and_sort(t_list **stack_a, t_list **stack_b)
+{
+	while ((*stack_a)->next->next->next != NULL)
+	{
+		push_b(stack_a, stack_b);
+	}
+	sort_three_nodes(stack_a);
+}
+int	calculate_a_spin(t_list *stack_a, t_list *stack_b)
+{
+	int		min_spin;
+	int		pos;
+	int		best_pos;
+	int		i;
+	t_list	*current_b;
+	t_list	*current_a;
+
+	min_spin = 2147483647;
+	best_pos = 0;
+	i = 0;
+	current_b = stack_b;
+	while (current_b != NULL)
+	{
+		pos = 0;
+		current_a = stack_a;
+		while (current_a != NULL && *current_b->content > *current_a->content)
+		{
+			pos++;
+			current_a = current_a->next;
+		}
+		if (pos < min_spin)
+		{
+			min_spin = pos;
+			best_pos = i;
+		}
+		current_b = current_b->next;
+		i++;
+	}
+	return (best_pos);
 }

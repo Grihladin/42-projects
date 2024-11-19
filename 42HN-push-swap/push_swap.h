@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 18:27:51 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:15:02 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ char				**ft_split(char const *s, char c);
 
 t_value_info		find_min(t_list *stack);
 t_value_info		find_max(t_list *stack);
-void				push_most_to_b(t_list **stack_a, t_list **stack_b);
+void				push_and_sort(t_list **stack_a, t_list **stack_b);
 void				sort_three_nodes(t_list **stack);
+int					calculate_a_spin(t_list *stack_a, t_list *stack_b);
 
 // operations
 

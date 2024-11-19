@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 18:27:51 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:37:30 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	char	**arg_array;
 	int		i;
+	int		spin_amount;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -32,8 +33,21 @@ int	main(int argc, char **argv)
 	ft_printf("------------------\n");
 	print_stacks_side_by_side(stack_a, stack_b);
 	ft_printf("------------------\n");
-	push_most_to_b(&stack_a, &stack_b);
-	sort_three_nodes(&stack_a);
+	push_and_sort(&stack_a, &stack_b);
+	while (stack_b != NULL)
+	{
+		spin_amount = calculate_a_spin(stack_a, stack_b);
+		while (spin_amount > 0)
+		{
+			rotate_a(&stack_a);
+			spin_amount--;
+		}
+		push_a(&stack_a, &stack_b);
+	}
+	// while (check_if_sorted(stack_a) != 1)
+	// {
+	// 	rotate_a(&stack_a);
+	// }
 	ft_printf("------------------\n");
 	print_stacks_side_by_side(stack_a, stack_b);
 	ft_printf("------------------\n");
