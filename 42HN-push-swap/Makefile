@@ -34,7 +34,7 @@ $(FT_PRINTF):
 	@$(MAKE) -C $(FT_PRINTF_DIR)
 
 clean:
-	@rm -f $(OBJ_DIR)/*.o
+	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
