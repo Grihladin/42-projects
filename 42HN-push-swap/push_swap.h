@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 19:15:02 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/20 16:17:17 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 // includes
 # include "ft_printf/ft_printf.h"
-# include <stdio.h>
 # include <stdlib.h>
 
 // linked list structure
@@ -29,39 +28,32 @@ typedef struct s_value_info
 {
 	int				value;
 	int				pos;
-	int				prev_value;
-	int				next_value;
 }					t_value_info;
 
-typedef struct s_stack_info
-{
-	int				max;
-	int				min;
-	int				size;
-}					t_stack_info;
 // list functions
+
 t_list				*ft_lstnew(int *content);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				print_stacks_side_by_side(t_list *stack_a, t_list *stack_b);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
 int					ft_lstsize(t_list *stack);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				print_stacks_side_by_side(t_list *stack_a, t_list *stack_b);
+void				print_stacks(t_list *stack_a, t_list *stack_b);
 
 // utility functions
+
 void				*alloc_and_put_int(char *str_num);
-void				fill_list(char **argv, t_list **stack);
-int					check_if_sorted(t_list *stack);
+void				fill_stack(char **argv, t_list **stack);
 char				**ft_split(char const *s, char c);
 
 // sorting functions
 
-t_value_info		find_min(t_list *stack);
 t_value_info		find_max(t_list *stack);
-void				push_and_sort(t_list **stack_a, t_list **stack_b);
-void				sort_three_nodes(t_list **stack);
-int					calculate_a_spin(t_list *stack_a, t_list *stack_b);
+void				tiny_sort(t_list **stack);
+int					check_if_sorted(t_list *stack);
+void				radix_sort(t_list **stack_a, t_list **stack_b, int max_num,
+						int stack_size);
 
 // operations
 

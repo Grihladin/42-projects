@@ -6,46 +6,52 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 19:35:16 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/18 20:22:26 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:49:05 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*current;
-
-	if (lst != NULL)
+	if (lst != NULL && new != NULL)
 	{
-		current = lst;
-		while (current->next != NULL)
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+void	print_stacks_side_by_side(t_list *stack_a, t_list *stack_b)
+{
+	t_list	*current_a;
+	t_list	*current_b;
+
+	current_a = stack_a;
+	current_b = stack_b;
+	ft_printf("Stack A    Stack B\n");
+	ft_printf("-------    -------\n");
+	while (current_a != NULL || current_b != NULL)
+	{
+		if (current_a != NULL)
 		{
-			current = current->next;
+			ft_printf(" %i ", *current_a->content);
+			current_a = current_a->next;
 		}
-		return (current);
-	}
-	return (NULL);
-}
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (lst != NULL)
-	{
-		del(lst->content);
-		free(lst);
+		else
+			ft_printf(" _");
+		if (current_b != NULL)
+		{
+			ft_printf("        %i\n", *current_b->content);
+			current_b = current_b->next;
+		}
+		else
+			ft_printf("        _\n");
 	}
 }
 
-int	ft_lstsize(t_list *stack)
+void	print_stacks(t_list *stack_a, t_list *stack_b)
 {
-	int	i;
-
-	i = 0;
-	while (stack != NULL)
-	{
-		i++;
-		stack = stack->next;
-	}
-	return (i);
+	ft_printf("------------------\n");
+	print_stacks_side_by_side(stack_a, stack_b);
+	ft_printf("------------------\n");
 }

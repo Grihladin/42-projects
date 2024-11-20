@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:09:45 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 00:46:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/20 15:12:45 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	current->next = new;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst != NULL && new != NULL)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-}
-
 t_list	*ft_lstnew(int *content)
 {
 	t_list	*new_node;
@@ -56,35 +47,6 @@ t_list	*ft_lstnew(int *content)
 	return (new_node);
 }
 
-void	print_stacks_side_by_side(t_list *stack_a, t_list *stack_b)
-{
-	t_list	*current_a;
-	t_list	*current_b;
-
-	current_a = stack_a;
-	current_b = stack_b;
-	printf("Stack A    Stack B\n");
-	printf("-------    -------\n");
-	while (current_a != NULL || current_b != NULL)
-	{
-		if (current_a != NULL)
-		{
-			printf("%-10d", *(int *)current_a->content);
-			current_a = current_a->next;
-		}
-		else
-			printf("%-10s", "_");
-		if (current_b != NULL)
-		{
-			printf("%-10d\n", *(int *)current_b->content);
-			current_b = current_b->next;
-		}
-		else
-			printf("%-10s\n", "_");
-	}
-	printf("a          b\n");
-}
-
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
@@ -96,4 +58,33 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(*lst);
 		*lst = tmp;
 	}
+}
+
+int	ft_lstsize(t_list *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*current;
+
+	if (lst != NULL)
+	{
+		current = lst;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		return (current);
+	}
+	return (NULL);
 }

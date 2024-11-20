@@ -6,11 +6,23 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:56:22 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 18:13:02 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/20 14:53:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	array_size(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
+}
 
 static int	ft_atoi(const char *str)
 {
@@ -52,19 +64,7 @@ void	*alloc_and_put_int(char *str_num)
 	return ((void *)content);
 }
 
-int	array_size(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	fill_list(char **argv, t_list **stack)
+void	fill_stack(char **argv, t_list **stack)
 {
 	t_list	*new_node;
 	int		i;

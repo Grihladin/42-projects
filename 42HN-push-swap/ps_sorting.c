@@ -6,36 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:35:31 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/19 19:39:14 by mratke           ###   ########.fr       */
+/*   Updated: 2024/11/20 16:17:25 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_value_info	find_min(t_list *stack)
-{
-	int				min;
-	int				pos;
-	int				min_pos;
-	t_value_info	result;
-
-	min = *stack->content;
-	pos = 0;
-	min_pos = 0;
-	while (stack != NULL)
-	{
-		if (*stack->content < min)
-		{
-			min = *stack->content;
-			min_pos = pos;
-		}
-		stack = stack->next;
-		pos++;
-	}
-	result.value = min;
-	result.pos = min_pos;
-	return (result);
-}
 
 t_value_info	find_max(t_list *stack)
 {
@@ -62,7 +37,35 @@ t_value_info	find_max(t_list *stack)
 	return (result);
 }
 
-void	sort_three_nodes(t_list **stack)
+void	radix_sort(t_list **stack_a, t_list **stack_b, int max_num,
+		int stack_size)
+{
+	int	max_bits;
+	int	i;
+	int	j;
+
+	max_bits = 0;
+	while ((max_num >> max_bits) != 0)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
+	{
+		while (j < stack_size)
+		{
+			if (((*(*stack_a)->content >> i) & 1) == 0)
+				push_b(stack_a, stack_b);
+			else
+				rotate_a(stack_a);
+			j++;
+		}
+		j = 0;
+		while (*stack_b != NULL)
+			push_a(stack_a, stack_b);
+		i++;
+	}
+}
+
+void	tiny_sort(t_list **stack)
 {
 	t_value_info	max;
 
@@ -79,45 +82,4 @@ void	sort_three_nodes(t_list **stack)
 	{
 		swap_a(stack);
 	}
-}
-
-void	push_and_sort(t_list **stack_a, t_list **stack_b)
-{
-	while ((*stack_a)->next->next->next != NULL)
-	{
-		push_b(stack_a, stack_b);
-	}
-	sort_three_nodes(stack_a);
-}
-int	calculate_a_spin(t_list *stack_a, t_list *stack_b)
-{
-	int		min_spin;
-	int		pos;
-	int		best_pos;
-	int		i;
-	t_list	*current_b;
-	t_list	*current_a;
-
-	min_spin = 2147483647;
-	best_pos = 0;
-	i = 0;
-	current_b = stack_b;
-	while (current_b != NULL)
-	{
-		pos = 0;
-		current_a = stack_a;
-		while (current_a != NULL && *current_b->content > *current_a->content)
-		{
-			pos++;
-			current_a = current_a->next;
-		}
-		if (pos < min_spin)
-		{
-			min_spin = pos;
-			best_pos = i;
-		}
-		current_b = current_b->next;
-		i++;
-	}
-	return (best_pos);
 }
