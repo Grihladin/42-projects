@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 19:52:04 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/17 15:39:25 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/17 15:49:02 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ Contact createContact() {
   return (Contact(phoneNumber, nickname, firstName, lastName, secret));
 }
 
-int main(int argc, char **argv) {
+int main() {
   std::string phoneNumber;
   std::string command;
   PhoneBook book;
