@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:59:54 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/17 19:47:35 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/17 20:03:28 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,38 @@ Account::~Account(void) {
   std::cout << "index:" << _accountIndex << ";"
             << "amount:" << _amount << ";"
             << "closed" << std::endl;
+}
+
+void Account::makeDeposit(int deposit) {
+  _amount += deposit;
+  _nbDeposits++;
+  _totalAmount += deposit;
+  _totalNbDeposits++;
+
+  _displayTimestamp();
+}
+
+int Account::checkAmount(void) const { return _amount; }
+
+bool Account::makeWithdrawal(int withdrawal) {
+
+  _displayTimestamp();
+  if (withdrawal > _amount) {
+    std::cout << "not enough ballance\n";
+    return (false);
+  }
+
+  _amount -= withdrawal;
+  _nbWithdrawals++;
+  _totalAmount -= withdrawal;
+  _totalNbWithdrawals++;
+  return (true);
+}
+
+void Account::displayStatus(void) const {
+  _displayTimestamp();
+  std::cout << "index:" << _accountIndex << ";"
+            << "amount:" << _amount << ";"
+            << "deposits:" << _nbDeposits << ";"
+            << "withdrawals:" << _nbWithdrawals << std::endl;
 }
