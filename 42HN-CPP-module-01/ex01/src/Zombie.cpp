@@ -1,0 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/18 15:31:40 by mratke            #+#    #+#             */
+/*   Updated: 2025/06/18 19:39:46 by mratke           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/Zombie.hpp"
+
+void Zombie::announce(void) { std::cout << name << ": BraiiiiiiinnnzzzZ...\n"; }
+
+void Zombie::setName(std::string zombieName) { name = zombieName; }
