@@ -6,11 +6,12 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 19:52:04 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/17 15:49:02 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/22 19:43:21 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cctype>
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -115,13 +116,29 @@ bool isValidNumber(std::string number) {
   return (true);
 }
 
+std::string getInput(std::string output) {
+  std::string input;
+
+  std::cout << output;
+  while (input.empty()) {
+    if (!std::getline(std::cin, input)) {
+      std::cout << "\nCONTROL + D handle. Exiting.\n";
+      exit(1);
+    }
+    if (input.empty()) {
+      std::cout << "You must enter something.\n";
+      std::cout << output;
+    }
+  }
+  return (input);
+}
+
 Contact createContact() {
   std::string phoneNumber, nickname, firstName, lastName, secret;
   bool validPhoneNumber = false;
 
   while (!validPhoneNumber) {
-    std::cout << "Enter phone number: ";
-    std::getline(std::cin, phoneNumber);
+    phoneNumber = getInput("Enter phone number: ");
     if (!isValidNumber(phoneNumber))
       std::cout << "Phone number can contain digits/+/-/)/), please enter "
                    "correct format\n";
@@ -129,50 +146,52 @@ Contact createContact() {
       validPhoneNumber = true;
   }
 
-  std::cout << "Enter nickname: ";
-  std::getline(std::cin, nickname);
-
-  std::cout << "Enter first name: ";
-  std::getline(std::cin, firstName);
-
-  std::cout << "Enter last name: ";
-  std::getline(std::cin, lastName);
-
-  std::cout << "Enter darkest secret: ";
-  std::getline(std::cin, secret);
+  nickname = getInput("Enter nickname: ");
+  firstName = getInput("Enter first name: ");
+  lastName = getInput("Enter last name: ");
+  secret = getInput("Enter darkest secret: ");
 
   return (Contact(phoneNumber, nickname, firstName, lastName, secret));
 }
 
+void handleSearch(PhoneBook book) {
+  int index;
+  std::string str;
+
+  book.displayAllContacts();
+  index = -1;
+  while (index < 0 || index > 7) {
+    str = getInput("Choose contact (0 to 7): ");
+    if (str.length() == 1 && std::isdigit(str[0])) {
+      index = str[0] - '0';
+      if (index >= 0 && index <= 7) {
+        book.displayContact(index);
+        break;
+      } else {
+        std::cout << "Enter a single digit from 0 to 7.\n";
+        index = -1;
+      }
+    } else {
+      std::cout << "Enter a single digit from 0 to 7.\n";
+    }
+  }
+}
+
 int main() {
-  std::string phoneNumber;
   std::string command;
   PhoneBook book;
-  std::string str;
   Contact newContact;
-  int index = -1;
 
   while (1) {
-    std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-    std::getline(std::cin, command);
+    command = getInput("Enter command (ADD, SEARCH, EXIT): ");
     if (command == "EXIT")
       break;
     else if (command == "ADD") {
       newContact = createContact();
       book.addContact(newContact);
     } else if (command == "SEARCH") {
-      book.displayAllContacts();
-      while (!(index >= 0 && index <= 7)) {
-        std::cout << "Choose contact (0 to 7): ";
-        std::getline(std::cin, str);
-        if (str.length() == 1 && std::isdigit(str[0])) {
-          index = str[0] - '0';
-          if (!(index >= 0 && index <= 7))
-            std::cout << "Invalid index.\n";
-        } else
-          std::cout << "Enter a singe digit. \n";
-      }
-      book.displayContact(index);
+      handleSearch(book);
     }
   }
+  return (0);
 }
