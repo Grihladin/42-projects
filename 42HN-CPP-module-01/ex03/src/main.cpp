@@ -6,13 +6,13 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 20:16:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/27 16:55:12 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/27 19:23:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <HumanA.hpp>
-#include <HumanB.hpp>
-#include <Weapon.hpp>
+#include "../inc/HumanA.hpp"
+#include "../inc/HumanB.hpp"
+#include "../inc/Weapon.hpp"
 
 int main() {
   {

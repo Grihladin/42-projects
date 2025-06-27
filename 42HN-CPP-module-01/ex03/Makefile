@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 SRC_DIR = src
 OBJ_DIR = objects
 
-SRC = main.cpp, Weapon.cpp, HumanA.cpp, HumanB.cpp
+SRC = main.cpp
 SRC_FILES = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
