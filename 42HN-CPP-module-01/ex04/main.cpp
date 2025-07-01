@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 19:45:59 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/01 17:01:43 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/01 17:26:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 std::string replaceWord(std::string &content, std::string &s1,
                         std::string &s2) {
+  if (s1.empty()) {
+    return (content);
+  }
+
   std::string result;
 
   for (size_t i = 0; i < content.length();) {
@@ -42,12 +46,12 @@ int main(int argc, char **argv) {
   std::string s1 = argv[2];
   std::string s2 = argv[3];
 
-  std::ofstream newFile(filename);
-  if (newFile.is_open()) {
-    newFile << "I love my dog." << std::endl;
-    newFile << "I'm walking with my dog everyday." << std::endl;
-    newFile.close();
-  }
+  // std::ofstream newFile(filename);
+  // if (newFile.is_open()) {
+  //   newFile << "I love my dog." << std::endl;
+  //   newFile << "I'm walking with my dog everyday." << std::endl;
+  //   newFile.close();
+  // }
 
   std::ifstream inputFile(filename);
   if (!inputFile.is_open()) {
