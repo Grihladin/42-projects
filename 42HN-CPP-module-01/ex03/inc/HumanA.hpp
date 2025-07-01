@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 20:07:13 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/27 19:25:55 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:44:50 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define HUMANA_HPP
 
 #include "Weapon.hpp"
+#include <iostream>
 
 class HumanA {
 private:
@@ -21,11 +22,9 @@ private:
   Weapon &weapon;
 
 public:
-  HumanA(const std::string &n, Weapon &weap) : name(n), weapon(weap) {}
+  HumanA(const std::string &n, Weapon &weap);
 
-  void attack(void) {
-    std::cout << name << "attacks with their " << weapon.getType() << std::endl;
-  }
+  void attack(void);
 };
 
 #endif

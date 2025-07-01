@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:33:29 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/18 19:13:20 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:22:15 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int main(void) {
   Zombie *z1 = newZombie("Frank");
   z1->announce();
+  delete z1;
   randomChump("Zac");
 }

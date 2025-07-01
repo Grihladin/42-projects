@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:33:29 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/18 19:47:18 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:23:07 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int main(void) {
     std::cout << "Zombie numer: " << i << "   ";
     horde[i].announce();
   }
+  delete[] horde;
 }

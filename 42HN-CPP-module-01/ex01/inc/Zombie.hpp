@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:33:20 by mratke            #+#    #+#             */
-/*   Updated: 2025/06/18 20:13:58 by mratke           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:19:19 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ private:
   std::string name;
 
 public:
-  Zombie() : name("noName") {}
-
-  Zombie(std::string zombieName) : name(zombieName) {}
+  Zombie();
+  Zombie(std::string zombieName);
+  ~Zombie();
 
   void announce(void);
   void setName(std::string name);
-  ~Zombie() { std::cout << name << " is destructed\n"; }
 };
 
 Zombie *zombieHorde(int N, std::string name);
