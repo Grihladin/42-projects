@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 22:18:00 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 20:21:53 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/05 19:22:35 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 class ScavTrap : public ClapTrap {
 public:
-  // Constructors
   ScavTrap();
   ScavTrap(std::string n);
   ScavTrap(const ScavTrap &copy);

@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:42:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 20:22:37 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/05 20:19:16 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ScavTrap.hpp"
+#include "../inc/FragTrap.hpp"
 
 // Constructors
-ScavTrap::ScavTrap() {
+FragTrap::FragTrap() {
   name = "noName";
   hitPoints = 0;
   energyPoints = 0;
   attackDamage = 0;
-  std::cout << "\e[0;33mDefault Constructor of ScavTrap called\e[0m"
+  std::cout << "\e[0;33mDefault Constructor of FragTrap called\e[0m"
             << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string n) : ClapTrap(n) {
+FragTrap::FragTrap(std::string n) : ClapTrap(n) {
   name = n;
   hitPoints = 100;
-  energyPoints = 50;
-  attackDamage = 20;
-  std::cout << "\e[0;33mConstructor of ScavTrap with name called\e[0m"
+  energyPoints = 100;
+  attackDamage = 30;
+  std::cout << "\e[0;33mConstructor of FragTrap with name called\e[0m"
             << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy) {
-  std::cout << "\e[0;33mCopy Constructor of ScavTrap called\e[0m" << std::endl;
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy) {
+  std::cout << "\e[0;33mCopy Constructor of FragTrap called\e[0m" << std::endl;
 }
 
 // Destructor
-ScavTrap::~ScavTrap() {
-  std::cout << "\e[0;31mDestructor of ScavTrap called\e[0m" << std::endl;
+FragTrap::~FragTrap() {
+  std::cout << "\e[0;31mDestructor of FragTrap called\e[0m" << std::endl;
 }
 
 // Operators
-ScavTrap &ScavTrap::operator=(const ScavTrap &assign) {
+FragTrap &FragTrap::operator=(const FragTrap &assign) {
   if (this != &assign) {
     ClapTrap::operator=(assign);
   }
@@ -50,12 +50,11 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign) {
 }
 
 // Functions
-void ScavTrap::attack(const std::string &target) {
-  std::cout << "ScavTrap " << name << " attacks " << target << " causing "
+void FragTrap::attack(const std::string &target) {
+  std::cout << "FragTrap " << name << " attacks " << target << " causing "
             << attackDamage << " points of damage!" << std::endl;
 }
 
-void ScavTrap::guardGate() {
-  std::cout << "ScavTrap " << name << " is now in Gate keeper mode."
-            << std::endl;
+void FragTrap::highFivesGuys(void) {
+  std::cout << name << ": positive high-fives request." << std::endl;
 }
