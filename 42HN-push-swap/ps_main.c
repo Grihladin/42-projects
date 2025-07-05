@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:48:08 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/20 16:22:04 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 00:29:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int	main(int argc, char **argv)
 	if (ft_lstsize(stack_a) == 3)
 		tiny_sort(&stack_a);
 	else
-		radix_sort(&stack_a, &stack_b, find_max(stack_a).value,
-			ft_lstsize(stack_a));
+		radix_sort_with_negatives(&stack_a, &stack_b, ft_lstsize(stack_a));
 	ft_lstclear(&stack_a, free);
 	free(stack_b);
 }

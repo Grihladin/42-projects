@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2024/11/20 16:17:17 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 00:29:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,15 @@ char				**ft_split(char const *s, char c);
 // sorting functions
 
 t_value_info		find_max(t_list *stack);
+t_value_info		find_min(t_list *stack);
 void				tiny_sort(t_list **stack);
 int					check_if_sorted(t_list *stack);
 void				radix_sort(t_list **stack_a, t_list **stack_b, int max_num,
 						int stack_size);
+void				radix_sort_with_negatives(t_list **stack_a, t_list **stack_b, 
+						int stack_size);
+void				normalize_stack(t_list *stack, int offset);
+void				denormalize_stack(t_list *stack, int offset);
 
 // operations
 
