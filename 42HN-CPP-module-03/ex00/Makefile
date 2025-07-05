@@ -1,6 +1,6 @@
 NAME = ex00
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++17
+CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++17
 SRC_DIR = src
 OBJ_DIR = objects
 
