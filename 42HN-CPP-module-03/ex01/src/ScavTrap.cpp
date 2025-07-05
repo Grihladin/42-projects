@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:42:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 18:59:09 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/05 19:46:24 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign) {
   hitPoints = assign.hitPoints;
   energyPoints = assign.energyPoints;
   attackDamage = assign.attackDamage;
-  std::cout << "ScavTrap overload of assign operator called";
+  std::cout << "ScavTrap overload of assign operator called" << std::endl;
   return *this;
 }
 
@@ -58,4 +58,9 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign) {
 void ScavTrap::attack(const std::string &target) {
   std::cout << "ScavTrap " << name << " attacks " << target << " causing "
             << attackDamage << " points of damage!" << std::endl;
+}
+
+void ScavTrap::guardGate() {
+  std::cout << "ScavTrap " << name << " is now in Gate keeper mode."
+            << std::endl;
 }

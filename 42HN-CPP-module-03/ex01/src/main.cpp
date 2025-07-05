@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:46:37 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 19:03:00 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/05 19:23:28 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int main() {
   ScavTrap g("gosha");
+  g.guardGate();
   g.attack("YOU");
 }
