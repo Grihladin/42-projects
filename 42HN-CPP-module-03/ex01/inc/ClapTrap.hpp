@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:30:23 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/02 22:06:33 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/05 18:51:26 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
 
-private:
+protected:
   std::string name;
   unsigned int hitPoints;
   unsigned int energyPoints;
