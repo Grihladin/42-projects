@@ -1,6 +1,10 @@
-# Push Swap
+<div align="center">
 
-A 42 School project that sorts integers using two stacks and a limited set of operations.
+# <img src="https://github.com/Grihladin/42-project-badges/blob/main/badges/push_swape.png" width="150" height="150"> 
+
+</div>
+
+Push_swap is a 42 School project that sorts integers using two stacks and a limited set of operations.
 
 ## Overview
 
