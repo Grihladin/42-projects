@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:12 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/06 00:29:00 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 10:46:31 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 // includes
-# include "ft_printf/ft_printf.h"
+# include "../ft_printf/inc/ft_printf.h"
 # include <stdlib.h>
 
 // linked list structure
