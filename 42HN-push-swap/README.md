@@ -4,7 +4,7 @@
 
 </div>
 
-Push Swap ([42Heilbronn](https://www.42heilbronn.de/en/) project) sorts a stack of integers using the minimum number of operations possible. It uses two stacks (A and B) and implements a radix sort algorithm optimized for the constraints.
+Push_Swap([42Heilbronn](https://www.42heilbronn.de/en/) project) sorts a stack of integers using the minimum number of operations possible. It uses two stacks (A and B) and implements a radix sort algorithm optimized for the constraints.
 
 ## Algorithm
 
