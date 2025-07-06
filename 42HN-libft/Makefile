@@ -58,7 +58,7 @@ OUTPUT_SRC = $(OUTPUT_DIR)/ft_putchar_fd.c \
 
 # All mandatory functions
 SRC = $(CHAR_SRC) $(STRING_SRC) $(MEMORY_SRC) $(CONVERSION_SRC) $(OUTPUT_SRC)
-OBJ = $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(SRC))
+OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 # Bonus functions (linked list)
 BONUS_SRC = $(LIST_DIR)/ft_lstnew.c \
@@ -70,7 +70,7 @@ BONUS_SRC = $(LIST_DIR)/ft_lstnew.c \
             $(LIST_DIR)/ft_lstclear.c \
             $(LIST_DIR)/ft_lstiter.c \
             $(LIST_DIR)/ft_lstmap.c
-BONUS_OBJ = $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(BONUS_SRC))
+BONUS_OBJ = $(BONUS_SRC:src/%.c=$(OBJ_DIR)/%.o)
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -Iinc
@@ -82,6 +82,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
 
 bonus: $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ)
