@@ -1,5 +1,8 @@
 NAME = libft.a
 
+# Object directory
+OBJ_DIR = obj
+
 # Source directories
 CHAR_DIR = src/char
 STRING_DIR = src/string
@@ -55,7 +58,7 @@ OUTPUT_SRC = $(OUTPUT_DIR)/ft_putchar_fd.c \
 
 # All mandatory functions
 SRC = $(CHAR_SRC) $(STRING_SRC) $(MEMORY_SRC) $(CONVERSION_SRC) $(OUTPUT_SRC)
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 # Bonus functions (linked list)
 BONUS_SRC = $(LIST_DIR)/ft_lstnew.c \
@@ -67,16 +70,15 @@ BONUS_SRC = $(LIST_DIR)/ft_lstnew.c \
             $(LIST_DIR)/ft_lstclear.c \
             $(LIST_DIR)/ft_lstiter.c \
             $(LIST_DIR)/ft_lstmap.c
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+BONUS_OBJ = $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(BONUS_SRC))
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -Wall -Wextra -Werror -Iinc
 
 .PHONY: all bonus clean fclean re
 
 # Targets
 all: $(NAME)
-
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
@@ -84,11 +86,12 @@ $(NAME): $(OBJ)
 bonus: $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: src/%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
