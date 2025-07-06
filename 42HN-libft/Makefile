@@ -1,54 +1,76 @@
 NAME = libft.a
-SRC = ft_isalpha.c \
-      ft_isdigit.c \
-      ft_toupper.c \
-      ft_tolower.c \
-      ft_isalnum.c \
-      ft_isascii.c \
-      ft_isprint.c \
-      ft_strlen.c \
-      ft_strchr.c \
-      ft_strrchr.c \
-      ft_strcmp.c \
-      ft_memset.c \
-      ft_strncmp.c \
-      ft_bzero.c \
-      ft_memchr.c \
-      ft_memcpy.c \
-      ft_memcmp.c \
-      ft_memmove.c \
-      ft_strlcpy.c \
-      ft_strnstr.c \
-      ft_strlcat.c \
-      ft_atoi.c \
-      ft_calloc.c \
-      ft_strdup.c \
-      ft_substr.c \
-      ft_strjoin.c \
-      ft_strtrim.c \
-      ft_split.c \
-      ft_itoa.c \
-      ft_strmapi.c \
-      ft_striteri.c \
-      ft_putchar_fd.c \
-      ft_putstr_fd.c \
-      ft_putendl_fd.c \
-      ft_putnbr_fd.c
 
+# Source directories
+CHAR_DIR = src/char
+STRING_DIR = src/string
+MEMORY_DIR = src/memory
+CONVERSION_DIR = src/conversion
+OUTPUT_DIR = src/output
+LIST_DIR = src/list
+
+# Character functions
+CHAR_SRC = $(CHAR_DIR)/ft_isalpha.c \
+           $(CHAR_DIR)/ft_isdigit.c \
+           $(CHAR_DIR)/ft_toupper.c \
+           $(CHAR_DIR)/ft_tolower.c \
+           $(CHAR_DIR)/ft_isalnum.c \
+           $(CHAR_DIR)/ft_isascii.c \
+           $(CHAR_DIR)/ft_isprint.c
+
+# String functions
+STRING_SRC = $(STRING_DIR)/ft_strlen.c \
+             $(STRING_DIR)/ft_strchr.c \
+             $(STRING_DIR)/ft_strrchr.c \
+             $(STRING_DIR)/ft_strcmp.c \
+             $(STRING_DIR)/ft_strncmp.c \
+             $(STRING_DIR)/ft_strlcpy.c \
+             $(STRING_DIR)/ft_strnstr.c \
+             $(STRING_DIR)/ft_strlcat.c \
+             $(STRING_DIR)/ft_strdup.c \
+             $(STRING_DIR)/ft_substr.c \
+             $(STRING_DIR)/ft_strjoin.c \
+             $(STRING_DIR)/ft_strtrim.c \
+             $(STRING_DIR)/ft_split.c \
+             $(STRING_DIR)/ft_strmapi.c \
+             $(STRING_DIR)/ft_striteri.c
+
+# Memory functions
+MEMORY_SRC = $(MEMORY_DIR)/ft_memset.c \
+             $(MEMORY_DIR)/ft_bzero.c \
+             $(MEMORY_DIR)/ft_memchr.c \
+             $(MEMORY_DIR)/ft_memcpy.c \
+             $(MEMORY_DIR)/ft_memcmp.c \
+             $(MEMORY_DIR)/ft_memmove.c \
+             $(MEMORY_DIR)/ft_calloc.c
+
+# Conversion functions
+CONVERSION_SRC = $(CONVERSION_DIR)/ft_atoi.c \
+                 $(CONVERSION_DIR)/ft_itoa.c
+
+# Output functions
+OUTPUT_SRC = $(OUTPUT_DIR)/ft_putchar_fd.c \
+             $(OUTPUT_DIR)/ft_putstr_fd.c \
+             $(OUTPUT_DIR)/ft_putendl_fd.c \
+             $(OUTPUT_DIR)/ft_putnbr_fd.c
+
+# All mandatory functions
+SRC = $(CHAR_SRC) $(STRING_SRC) $(MEMORY_SRC) $(CONVERSION_SRC) $(OUTPUT_SRC)
 OBJ = $(SRC:.c=.o)
-BONUS_SRC = ft_lstnew.c \
-            ft_lstadd_front.c \
-            ft_lstsize.c \
-            ft_lstlast.c \
-            ft_lstadd_back.c \
-            ft_lstdelone.c \
-            ft_lstclear.c \
-            ft_lstiter.c \
-            ft_lstmap.c
+
+# Bonus functions (linked list)
+BONUS_SRC = $(LIST_DIR)/ft_lstnew.c \
+            $(LIST_DIR)/ft_lstadd_front.c \
+            $(LIST_DIR)/ft_lstsize.c \
+            $(LIST_DIR)/ft_lstlast.c \
+            $(LIST_DIR)/ft_lstadd_back.c \
+            $(LIST_DIR)/ft_lstdelone.c \
+            $(LIST_DIR)/ft_lstclear.c \
+            $(LIST_DIR)/ft_lstiter.c \
+            $(LIST_DIR)/ft_lstmap.c
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror #-I/path/to/headers
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 .PHONY: all bonus clean fclean re
 
