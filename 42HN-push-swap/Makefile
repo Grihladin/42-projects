@@ -21,27 +21,31 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Rules
 all: $(NAME)
-	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
 
 $(NAME): $(OBJ) $(FT_PRINTF)
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $(NAME) $(OBJ) $(FT_PRINTF)
+	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(FT_PRINTF_DIR)/Makefile
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
+
+$(FT_PRINTF_DIR)/Makefile:
+	@echo "Initializing submodule..."
+	@git submodule update --init --recursive
 
 $(FT_PRINTF):
 	@$(MAKE) -C $(FT_PRINTF_DIR)
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@$(MAKE) -C $(FT_PRINTF_DIR) clean
+	@if [ -d $(FT_PRINTF_DIR) ] && [ -f $(FT_PRINTF_DIR)/Makefile ]; then $(MAKE) -C $(FT_PRINTF_DIR) clean; fi
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) -C $(FT_PRINTF_DIR) fclean
+	@if [ -d $(FT_PRINTF_DIR) ] && [ -f $(FT_PRINTF_DIR)/Makefile ]; then $(MAKE) -C $(FT_PRINTF_DIR) fclean; fi
 	@rm -rf $(OBJ_DIR)
 
 re: fclean all
