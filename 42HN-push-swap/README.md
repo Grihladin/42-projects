@@ -13,6 +13,10 @@ Push Swap sorts a stack of integers using the minimum number of operations possi
 
 ## Installation
 
+**Requirements:**
+- macOS or Linux
+- Make
+
 ```bash
 make
 ```
