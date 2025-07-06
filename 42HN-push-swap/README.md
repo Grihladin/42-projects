@@ -4,8 +4,6 @@
 
 </div>
 
-## Overview
-
 Push Swap (42 School project) sorts a stack of integers using the minimum number of operations possible. It uses two stacks (A and B) and implements a radix sort algorithm optimized for the constraints.
 
 ## Algorithm
