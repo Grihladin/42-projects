@@ -46,16 +46,16 @@ make
 
 ```
 push_swap/
-├── push_swap.h          # Header file with function declarations
+├── push_swap.h         # Header file with function declarations
 ├── ps_main.c           # Main program entry point
 ├── ps_sorting.c        # Core sorting algorithms (radix sort, tiny sort)
 ├── ps_operations*.c    # Stack operations (sa, sb, pa, pb, ra, rb, etc.)
-├── ps_list_fts*.c     # Linked list utility functions
-├── ps_utils.c         # Helper functions and input validation
-├── ft_split.c         # String parsing utilities
-├── ft_printf/         # Custom printf library
-├── Makefile           # Build configuration
-└── README.md          # Project documentation
+├── ps_list_fts*.c      # Linked list utility functions
+├── ps_utils.c          # Helper functions and input validation
+├── ft_split.c          # String parsing utilities
+├── ft_printf/          # Custom printf library
+├── Makefile            # Build configuration
+└── README.md           # Project documentation
 ```
 
 ---
