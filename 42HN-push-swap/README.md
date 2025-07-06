@@ -23,6 +23,7 @@ Push Swap sorts a stack of integers using the minimum number of operations possi
 
 ```bash
 git clone https://github.com/Grihladin/42HN-push_swap.git
+cd 42HN-push_swap
 make
 ```
 
