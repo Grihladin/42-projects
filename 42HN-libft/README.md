@@ -6,14 +6,14 @@
 
 Libft([42Heilbronn](https://www.42heilbronn.de/en/) project) is a custom C library that recreates essential functions from the C standard library, plus additional utility functions. This library serves as the foundation for my future 42 projects.
 
-## Features
+## ✨ Features
 
 - **Standard C Library Functions**: String manipulation, memory management, character checking
 - **Additional Utilities**: Enhanced string operations, conversion functions, file descriptor output
 - **Bonus Functions**: Complete linked list implementation
 - **42 Norm Compliant**: Follows strict coding standards with no memory leaks
 
-## Usage
+## 🚀 Usage
 
 ```bash
 # Build with bonus functions
@@ -29,7 +29,7 @@ gcc -Wall -Wextra -Werror your_file.c libft.a
 **Library**: `libft.a` static library  
 **Header**: `libft.h` with all function prototypes
 
-## Function Categories
+## 📚 Function Categories
 
 - **Character Functions**: `ft_isalpha`, `ft_isdigit`, `ft_tolower`, etc. (7 functions)
 - **String Functions**: `ft_strlen`, `ft_strchr`, `ft_split`, etc. (15 functions)
@@ -38,7 +38,7 @@ gcc -Wall -Wextra -Werror your_file.c libft.a
 - **Output Functions**: `ft_putstr_fd`, `ft_putnbr_fd`, etc. (4 functions)
 - **Bonus - List Functions**: `ft_lstnew`, `ft_lstadd_back`, etc. (9 functions)
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 libft/
