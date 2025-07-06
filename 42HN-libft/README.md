@@ -16,9 +16,6 @@ Libft([42Heilbronn](https://www.42heilbronn.de/en/) project) is a custom C libra
 ## Usage
 
 ```bash
-# Build the library
-make
-
 # Build with bonus functions
 make bonus
 
