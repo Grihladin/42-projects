@@ -2,7 +2,7 @@ NAME = ex00
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 SRC_DIR = src
-OBJ_DIR = objects
+OBJ_DIR = obj
 
 SRC = main.cpp Animal.cpp Dog.cpp
 SRC_FILES = $(addprefix $(SRC_DIR)/, $(SRC))
