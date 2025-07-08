@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:30:23 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/02 22:06:33 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 19:01:29 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ public:
 
 private:
   std::string name;
-  unsigned int hitPoints;
-  unsigned int energyPoints;
-  unsigned int attackDamage;
+  unsigned int hitPoints = 10;
+  unsigned int energyPoints = 10;
+  unsigned int attackDamage = 0;
 };
 
 #endif
