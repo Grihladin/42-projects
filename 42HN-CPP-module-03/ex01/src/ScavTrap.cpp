@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:42:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 20:22:37 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 19:24:59 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // Constructors
 ScavTrap::ScavTrap() {
   name = "noName";
-  hitPoints = 0;
-  energyPoints = 0;
-  attackDamage = 0;
+  hitPoints = 100;
+  energyPoints = 50;
+  attackDamage = 20;
   std::cout << "\e[0;33mDefault Constructor of ScavTrap called\e[0m"
             << std::endl;
 }
@@ -45,14 +45,15 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign) {
   if (this != &assign) {
     ClapTrap::operator=(assign);
   }
-  std::cout << "ScavTrap overload of assign operator called" << std::endl;
+  std::cout << "\e[0;33mScavTrap overload of assign operator called\e[0m"
+            << std::endl;
   return *this;
 }
 
 // Functions
 void ScavTrap::attack(const std::string &target) {
-  std::cout << "ScavTrap " << name << " attacks " << target << " causing "
-            << attackDamage << " points of damage!" << std::endl;
+  std::cout << "ScavTrap " << ClapTrap::name << " attacks " << target
+            << " causing " << attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate() {
