@@ -1,10 +1,10 @@
-NAME = ex02
+NAME = ex03
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++17
 SRC_DIR = src
 OBJ_DIR = objects
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 SRC_FILES = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 

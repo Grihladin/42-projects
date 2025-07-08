@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 22:18:00 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 21:40:22 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 19:45:59 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
   // Functions
   void attack(const std::string &target);
   void highFivesGuys(void);
+  unsigned int getHealth(void) { return hitPoints; }
 };
 
 #endif

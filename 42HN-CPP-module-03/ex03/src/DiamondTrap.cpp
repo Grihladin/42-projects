@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 21:31:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 21:49:10 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 20:00:34 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 DiamondTrap::DiamondTrap() {
   name = "noName";
   ClapTrap::name = "noName_clap_name";
-  hitPoints = 0;
-  energyPoints = 0;
-  attackDamage = 0;
+  hitPoints = FragTrap::hitPoints;
+  energyPoints = ScavTrap::energyPoints;
+  attackDamage = FragTrap::attackDamage;
   std::cout << "\e[0;33mDefault Constructor of DiamondTrap called\e[0m"
             << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string n) : ScavTrap(n), FragTrap(n) {
-  name = "_clap_name";
+  name = n;
   ClapTrap::name = n + "_clap_name";
-  hitPoints = 100;
-  energyPoints = 50;
-  attackDamage = 20;
+  hitPoints = FragTrap::hitPoints;
+  energyPoints = ScavTrap::energyPoints;
+  attackDamage = FragTrap::attackDamage;
   std::cout << "\e[0;33mConstructor of DiamondTrap with name called\e[0m"
             << std::endl;
 }
@@ -48,11 +48,17 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &assign) {
   if (this != &assign) {
     ClapTrap::operator=(assign);
   }
-  std::cout << "DiamondTrap overload of assign operator called" << std::endl;
+  std::cout << "\e[0;33mDiamondTrap overload of assign operator called\e[0m"
+            << std::endl;
   return *this;
 }
 
 // Functions
 void DiamondTrap::attack(const std::string &target) {
-  ClapTrap::attack(target);
+  ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI() {
+  std::cout << "DiamondTrap name: " << name
+            << " | ClapTrap name: " << ClapTrap::name << std::endl;
 }

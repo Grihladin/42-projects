@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:30:13 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 20:17:55 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 19:58:08 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 // Constructors
 ClapTrap::ClapTrap() {
   name = "noName";
-  hitPoints = 0;
-  energyPoints = 0;
-  attackDamage = 0;
   std::cout << "\e[0;33mDefault Constructor of ClapTrap called\e[0m"
             << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string n) {
   name = n;
-  hitPoints = 10;
-  energyPoints = 10;
-  attackDamage = 0;
   std::cout << "\e[0;33mConstructor of ClapTrap with name called\e[0m"
             << std::endl;
 }
@@ -50,7 +44,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &assign) {
   hitPoints = assign.hitPoints;
   energyPoints = assign.energyPoints;
   attackDamage = assign.attackDamage;
-  std::cout << "ClapTrap overload of assign operator called" << std::endl;
+  std::cout << "\e[0;33mClapTrap overload of assign operator called\e[0m"
+            << std::endl;
   return *this;
 }
 
