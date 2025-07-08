@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 22:07:37 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/08 22:24:09 by mratke           ###   ########.fr       */
+/*   Created: 2025/07/08 22:21:49 by mratke            #+#    #+#             */
+/*   Updated: 2025/07/08 22:31:32 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
+#include "Animal.hpp"
 #include <iostream>
 #include <string>
 
-class Animal {
+class Dog : public Animal {
 public:
   // Constructors
-  Animal();
-  Animal(const Animal &copy);
+  Dog();
+  Dog(const Dog &copy);
 
   // Destructor
-  ~Animal();
+  ~Dog();
 
   // Operators
-  Animal &operator=(const Animal &assign);
+  Dog &operator=(const Dog &assign);
 
   // Functions
   void makeSound();
-
-protected:
-  std::string type;
 };
 
 #endif

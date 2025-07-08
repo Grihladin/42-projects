@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 22:07:37 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/08 22:24:09 by mratke           ###   ########.fr       */
+/*   Created: 2025/07/08 22:24:59 by mratke            #+#    #+#             */
+/*   Updated: 2025/07/08 22:29:50 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "../inc/Dog.hpp"
 
-#include <iostream>
-#include <string>
-
-class Animal {
-public:
-  // Constructors
-  Animal();
-  Animal(const Animal &copy);
-
-  // Destructor
-  ~Animal();
-
-  // Operators
-  Animal &operator=(const Animal &assign);
-
-  // Functions
-  void makeSound();
-
-protected:
-  std::string type;
-};
-
-#endif
+int main(void) {
+  Dog d;
+  d.makeSound();
+}
