@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 21:30:13 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 19:28:09 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 18:57:26 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &assign) {
   hitPoints = assign.hitPoints;
   energyPoints = assign.energyPoints;
   attackDamage = assign.attackDamage;
-  std::cout << "ClapTrap overload of assign operator called" << std::endl;
+  std::cout << "\e[0;33mClapTrap overload of assign operator called\e[0m" << std::endl;
   return *this;
 }
 
