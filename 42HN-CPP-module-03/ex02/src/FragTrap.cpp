@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:42:15 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/05 20:19:16 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/08 19:30:20 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // Constructors
 FragTrap::FragTrap() {
   name = "noName";
-  hitPoints = 0;
-  energyPoints = 0;
-  attackDamage = 0;
+  hitPoints = 100;
+  energyPoints = 100;
+  attackDamage = 30;
   std::cout << "\e[0;33mDefault Constructor of FragTrap called\e[0m"
             << std::endl;
 }
@@ -45,7 +45,8 @@ FragTrap &FragTrap::operator=(const FragTrap &assign) {
   if (this != &assign) {
     ClapTrap::operator=(assign);
   }
-  std::cout << "ScavTrap overload of assign operator called" << std::endl;
+  std::cout << "\e[0;33mScavTrap overload of assign operator called\e[0m"
+            << std::endl;
   return *this;
 }
 
