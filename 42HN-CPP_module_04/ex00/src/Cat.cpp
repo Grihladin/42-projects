@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:22:49 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:04:58 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/10 20:05:03 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Dog.hpp"
+#include "../inc/Cat.hpp"
 
 // Constructors
-Dog::Dog() {
-  type = "Dog";
-  std::cout << "\e[0;33mDefault Constructor of Dog called\e[0m" << std::endl;
+Cat::Cat() {
+  type = "Cat";
+  std::cout << "\e[0;33mDefault Constructor of Cat called\e[0m" << std::endl;
 }
 
-Dog::Dog(const Dog &copy) {
+Cat::Cat(const Cat &copy) {
   type = copy.type;
-  std::cout << "\e[0;33mCopy Constructor of Dog called\e[0m" << std::endl;
+  std::cout << "\e[0;33mCopy Constructor of Cat called\e[0m" << std::endl;
 }
 
 // Destructor
-Dog::~Dog() {
-  std::cout << "\e[0;31mDestructor of Dog called\e[0m" << std::endl;
+Cat::~Cat() {
+  std::cout << "\e[0;31mDestructor of Cat called\e[0m" << std::endl;
 }
 
 // Operators
-Dog &Dog::operator=(const Dog &assign) {
+Cat &Cat::operator=(const Cat &assign) {
   type = assign.type;
-  std::cout << "\e[0;33mDog overload of assign operator called\e[0m"
+  std::cout << "\e[0;33mCat overload of assign operator called\e[0m"
             << std::endl;
   return *this;
 }
 
 // Fuctions
-void Dog::makeSound() const { std::cout << "GAV GAV GAV" << std::endl; }
-std::string Dog::getType() const { return (type); }
+void Cat::makeSound() const { std::cout << "Myaau Myauuu Mayuuu" << std::endl; }
+
+std::string Cat::getType() const { return (type); }

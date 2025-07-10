@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = main.cpp Animal.cpp Dog.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
 SRC_FILES = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 

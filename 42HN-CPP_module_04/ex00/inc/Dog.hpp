@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:21:49 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/08 22:31:32 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/10 20:03:23 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ public:
   Dog &operator=(const Dog &assign);
 
   // Functions
-  void makeSound();
+  void makeSound() const override;
+  std::string getType() const override;
 };
 
 #endif

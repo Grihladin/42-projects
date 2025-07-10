@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:07:37 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/08 22:24:09 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/10 20:02:26 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ class Animal {
 public:
   // Constructors
   Animal();
+  Animal(std::string n);
   Animal(const Animal &copy);
 
   // Destructor
-  ~Animal();
+  virtual ~Animal();
 
   // Operators
   Animal &operator=(const Animal &assign);
 
   // Functions
-  void makeSound();
+  virtual void makeSound() const;
+  virtual std::string getType() const;
 
 protected:
   std::string type;

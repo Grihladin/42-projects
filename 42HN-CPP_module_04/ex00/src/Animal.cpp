@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:11:14 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/08 22:24:13 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/10 20:01:11 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 Animal::Animal() {
   type = "noType";
   std::cout << "\e[0;33mDefault Constructor of Animal called\e[0m" << std::endl;
+}
+
+Animal::Animal(std::string n) {
+  type = n;
+  std::cout << "\e[0;33mConstructor of Animal with name called\e[0m"
+            << std::endl;
 }
 
 Animal::Animal(const Animal &copy) {
@@ -37,9 +43,5 @@ Animal &Animal::operator=(const Animal &assign) {
 }
 
 // Fuctions
-void Animal::makeSound() {
-  if (type == "Dog")
-    std::cout << "Bark Bark Bark";
-  else if (type == "Cat")
-    std::cout << "Myaau Myauuu Mayuuu";
-}
+void Animal::makeSound() const { std::cout << "Animal's sounds\n"; }
+std::string Animal::getType() const { return (type); }

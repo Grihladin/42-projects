@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 22:24:59 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:06:50 by mratke           ###   ########.fr       */
+/*   Created: 2025/07/08 22:21:49 by mratke            #+#    #+#             */
+/*   Updated: 2025/07/10 20:03:07 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
-#include "../inc/Dog.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main() {
-  const Animal *meta = new Animal();
-  const Animal *j = new Dog();
-  const Animal *i = new Cat();
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  i->makeSound(); // will output the cat sound!
-  j->makeSound();
-  meta->makeSound();
+#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
-  delete meta;
-  delete i;
-  delete j;
-  return 0;
-}
+class Cat : public Animal {
+public:
+  // Constructors
+  Cat();
+  Cat(const Cat &copy);
+
+  // Destructor
+  ~Cat();
+
+  // Operators
+  Cat &operator=(const Cat &assign);
+
+  // Functions
+  void makeSound() const override;
+  std::string getType() const override;
+};
+
+#endif
