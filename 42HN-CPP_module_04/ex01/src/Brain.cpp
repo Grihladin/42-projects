@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:22:49 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:39:55 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/15 17:28:42 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ Brain &Brain::operator=(const Brain &assign) {
             << std::endl;
   return *this;
 }
+
+std::string *Brain::getIdeas() { return ideas; }

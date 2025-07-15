@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:22:49 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:47:41 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/15 20:15:37 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat() {
 }
 
 Cat::Cat(const Cat &copy) : Animal(copy) {
+  brain = new Brain(*copy.brain);
   std::cout << "\e[0;33mCopy Constructor of Cat called\e[0m" << std::endl;
 }
 
@@ -31,7 +32,13 @@ Cat::~Cat() {
 
 // Operators
 Cat &Cat::operator=(const Cat &assign) {
-  type = assign.type;
+  if (this != &assign) {
+    Animal::operator=(assign);
+    if (brain)
+      delete brain;
+    brain = new Brain(*assign.brain);
+    type = assign.type;
+  }
   std::cout << "\e[0;33mCat overload of assign operator called\e[0m"
             << std::endl;
   return *this;

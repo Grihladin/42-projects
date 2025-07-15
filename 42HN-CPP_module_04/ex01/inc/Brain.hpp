@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 20:15:04 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:36:10 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/15 17:25:45 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
   Brain &operator=(const Brain &assign);
 
   // Functions
+  std::string *getIdeas();
 
 private:
   std::string ideas[100];

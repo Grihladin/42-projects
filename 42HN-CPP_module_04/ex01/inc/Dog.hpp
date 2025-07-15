@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 22:21:49 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/10 20:19:44 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/15 17:40:01 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ public:
   // Functions
   void makeSound() const override;
   std::string getType() const override;
+  void assignIdeas();
+  void printIdeas();
 
 private:
   Brain *brain;
