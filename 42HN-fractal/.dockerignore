@@ -1,0 +1,8 @@
+.git
+obj
+fract-ol
+MLX42/build
+ft_printf_submodule/obj
+ft_printf_submodule/ft_printf.a
+*.o
+*.a

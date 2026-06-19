@@ -1,66 +1,26 @@
-NAME	:= philo
+NAME := philo
+CC := cc
+CFLAGS := -Wall -Wextra -Werror -pthread
+CPPFLAGS := -Iinc
 
-#################################
-#			Config				#
-#################################
+SRC := $(shell find src -name '*.c' | sort)
+OBJ := $(SRC:%.c=obj/%.o)
 
-CC	:= gcc
-
-#################################
-#			Flags				#
-#################################
-
-DEBUG_FLAGS	:= -g -fsanitize=address -fsanitize=undefined -O0
-CFLAGS		:= -Wall -Wextra -Werror -g -pthread -Iinc
-
-#################################
-#			Directories			#
-#################################
-
-SRC_DIR = src
-INC_DIR = inc
-OBJ_DIR = obj
-
-#################################
-#			Files				#
-#################################
-
-SRC = \
-main.c \
-utils.c \
-lst_fts.c \
-printing.c \
-protocol.c \
-time.c \
-initialisation.c \
-death_check.c \
-cleanup.c
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
-SRC_PATHS = $(addprefix $(SRC_DIR)/, $(SRC))
-
-#################################
-#			Rules				#
-#################################
+.PHONY: all clean fclean re
 
 all: $(NAME)
-	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+obj/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

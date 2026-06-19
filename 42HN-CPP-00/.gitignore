@@ -1,0 +1,4 @@
+.vscode/
+*/*.o
+ex00/megaphone
+ex01/phoneBook

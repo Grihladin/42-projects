@@ -1,0 +1,6 @@
+[submodule "42HN-fractal/MLX42"]
+	path = 42HN-fractal/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git
+[submodule "42HN-miniRT/MLX42"]
+	path = 42HN-miniRT/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git

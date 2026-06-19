@@ -1,0 +1,11 @@
+.git
+obj
+miniRT
+MLX42/build
+libft/obj
+libft/libft.a
+ft_printf/obj
+ft_printf/ft_printf.a
+get_next_line/get_next_line.a
+*.o
+*.a

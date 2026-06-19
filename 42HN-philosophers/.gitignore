@@ -1,5 +1,7 @@
 .DS_Store
 .vscode/
+obj/
 objects/
+philo
 aliases
 delay_meter.py

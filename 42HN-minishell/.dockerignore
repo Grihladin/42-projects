@@ -1,0 +1,7 @@
+.git
+obj
+minishell
+libft/obj
+libft/libft.a
+*.o
+*.a
