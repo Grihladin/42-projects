@@ -1,0 +1,15 @@
+*.o
+*.a
+.DS_Store
+.vscode/
+libft/objects
+libft/libft.a
+objects
+minishell
+>
+>>
+|
+asd
+echo
+<
+tmp_*
