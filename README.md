@@ -32,24 +32,6 @@ the original Git histories where the source repositories had commits.
 ![CPP Module 09](42-project-badges/badges/numbered_cpps/CPP09.png)
 ![inception](42-project-badges/badges/inceptione.png)
 
-## Included Repositories
-
-- `42HN-libft`
-- `42HN-ft-printf`
-- `42HN-get-next-line`
-- `42HN-pipex`
-- `42HN-push-swap`
-- `42HN-philosophers`
-- `42HN-minishell`
-- `42HN-fractal`
-- `42HN-miniRT`
-- `42HN-IRC-server`
-- `42HN-CPP-00`
-- `42HN-CPP-01`
-- `42HN-CPP-02`
-- `42HN-CPP-03`
-- `42HN-CPP-04`
-- `42HN-CPP-06`
 
 ## Notes
 
